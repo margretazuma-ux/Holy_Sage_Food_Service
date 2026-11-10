@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holy Sage · Kerstcatering in Twente</title>
+<meta name="description" content="Kerstborrel, kerstlunch of kerstfeest op kantoor. Italiaans, Frans, Jamaicaans of Continentaal, met plantaardige opties. Vanaf 10 personen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#24443A; --green-2:#17302A; --gold:#B4E2D4; --gold-ink:#2E6B57;
+    --ink:#1B2420; --text:#33403A; --muted:#4A5550; --soft:#6B7570;
+    --line:#D9E1DC; --tint:#F5F7F5; --leaf-bg:#E3EFE6; --leaf:#1E5A3A; --cream:#E3F3EE;
+    --display:'Josefin Sans', system-ui, sans-serif; --body:Inter, system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+  img{display:block;max-width:100%}
+  a{color:var(--green)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:var(--display);font-weight:700;color:var(--green);margin:0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 24px;min-height:46px;font:600 15px var(--body);cursor:pointer;text-decoration:none}
+  .btn-gold{background:var(--gold);color:var(--green)}
+  .btn-green{background:var(--green);color:#fff}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid #5E7D70}
+  .btn-outline{background:#fff;color:var(--green);border:1.5px solid var(--green)}
+  .btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-ink);outline-offset:2px}
+
+  header{background:var(--green);position:sticky;top:0;z-index:10}
+  .nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding:14px 0}
+  .logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.05em;color:var(--gold);text-decoration:none}
+  .nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
+  .nav-links a{color:#E8EEEA;text-decoration:none;font-size:15px}
+  .nav-links a:hover{color:#fff;text-decoration:underline}
+
+  .hero{background:var(--green);padding:28px 0 64px}
+  .hero-grid{display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px}
+  .hero-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px}
+  .eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3rem);line-height:1.05}
+  .hero p{margin:0;font-size:17px;color:#C9D3CC}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .collage{flex:1 1 440px;min-width:0;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:170px 170px;gap:8px}
+  .collage img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+  .collage img:first-child{grid-row:span 2}
+
+  section{padding:72px 0}
+  .tint{background:var(--tint)}
+  .section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px}
+  .section-head h2{font-size:clamp(1.75rem,3.5vw,2.25rem)}
+  .section-head p{margin:6px 0 0;color:var(--muted)}
+  .grid{display:grid;gap:20px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .card h3{font-size:24px}
+  .price{font-family:var(--display);font-weight:700;font-size:28px;color:var(--gold-ink)}
+  .price small{font-family:var(--body);font-size:14px;font-weight:500;color:var(--muted)}
+  .card p{margin:0}
+  .card .en{font-size:13px;color:var(--soft)}
+  .card .btn{margin-top:auto}
+
+  .cuisine{background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .cuisine img{width:100%;height:170px;object-fit:cover}
+  .cuisine-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px}
+  .cuisine h3{font-size:22px}
+  .label{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+  .dishes{font-size:14px;color:var(--text)}
+  .plant{font-size:13px;color:var(--leaf);background:var(--leaf-bg);border-radius:8px;padding:6px 10px}
+  .dessert{font-size:13px;color:var(--muted)}
+
+  .photo-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:24px}
+  .photo-row img{width:100%;height:260px;object-fit:cover;border-radius:14px}
+  .board{border:1.5px solid var(--green);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:4px}
+  .board h3{font-size:20px}
+  .board .people{font-size:14px;color:var(--muted)}
+  .board .price{font-size:24px}
+  .board.feature{background:var(--green)}
+  .board.feature h3{color:#fff}.board.feature .people{color:#C9D3CC}.board.feature .price{color:var(--gold)}
+
+  .mock{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:var(--cream);color:var(--green);font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px}
+
+  .cta{background:var(--gold);padding:56px 0}
+  .cta .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+  .cta h2{font-size:2rem}
+  .cta p{margin:6px 0 0;color:var(--green)}
+  footer{background:var(--green);color:#C9D3CC;font-size:13px;padding:28px 0}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+  dialog{border:0;border-radius:18px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 32px)}
+  dialog::backdrop{background:rgba(14,36,28,.6)}
+  .modal{padding:28px;overflow-y:auto}
+  .modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .modal-head h2{font-size:26px}
+  .modal-head p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+  .close{background:#F0F3F1;border:0;border-radius:999px;width:44px;height:44px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  form{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--green)}
+  input,select,textarea{border:1.5px solid #C9D3CC;border-radius:10px;padding:11px 12px;font:400 15px var(--body);color:var(--ink);background:#fff;width:100%}
+  textarea{resize:vertical}
+  .check{flex-direction:row;align-items:center;gap:10px;font-weight:400;font-size:14px;color:var(--text)}
+  .check input{width:20px;height:20px}
+  .status{font-size:14px;border-radius:10px;padding:12px 14px}
+  .status.ok{background:var(--leaf-bg);color:var(--leaf)}
+  .status.err{background:#FBE9E5;color:#8C2F1B}
+  .hp{display:none}
+  @media (max-width:520px){
+    .collage{grid-template-columns:1fr 1fr;grid-template-rows:200px 120px 120px}
+    .collage img:first-child{grid-column:span 2;grid-row:auto}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="logo-light.png" alt="Holy Sage" style="display: block; height: 34px; width: auto"></a>
+    <nav class="nav-links" aria-label="Hoofdmenu">
+      <a href="#pakketten">Pakketten</a>
+      <a href="#menus">Menu's</a>
+      <a href="#borrel">Borrel</a>
+      <a href="#mocktails">Mocktails</a>
+      <button class="btn btn-gold" type="button" data-order>Bestel nu</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Kerstcatering · Twente</div>
+        <h1>Kerstborrel of kerstdiner op kantoor? Wij regelen het eten.</h1>
+        <p>Kies een pakket en een keuken: Italiaans, Frans, Jamaicaans of Continentaal. Plantaardige opties bij elk menu, vanaf 10 personen. <strong style="color:#fff">Bestellen kan tot en met 11 december.</strong></p>
+        <div class="hero-actions">
+          <button class="btn btn-gold" type="button" data-order>Bestel nu</button>
+          <a class="btn btn-ghost" href="#menus">Bekijk de menu's</a>
+          <a class="btn btn-ghost" href="Holy-Sage-menu.pdf" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+            Download menu (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="collage">
+        <img src="hero-grazing.jpg" alt="Grazing table met kazen, vleeswaren en fruit">
+        <img src="ossobuco.jpg" alt="Ossobuco" loading="lazy">
+        <img src="coq-au-vin.jpg" alt="Coq au vin" loading="lazy">
+        <img src="oxtail.jpg" alt="Oxtail stew" loading="lazy">
+        <img src="salmon.jpg" alt="Zalm uit de oven" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <section id="pakketten">
+    <div class="wrap">
+      <div class="section-head"><div><h2>Kies je pakket</h2><p>Choose your package</p></div></div>
+      <div class="grid g3">
+        <div class="card">
+          <h3>Kerstborrel Graze</h3>
+          <div class="price"><small>vanaf</small> €180</div>
+          <p>Een royale grazing board voor de kerstborrel, in vier formaten van 10 tot 25+ personen.</p>
+          <p class="en">Grazing boards for Christmas drinks</p>
+          <button class="btn btn-green" type="button" data-order="Kerstborrel Graze">Bestel nu</button>
+        </div>
+        <div class="card">
+          <h3>Kerstlunch</h3>
+          <div class="price">€24,99 <small>p.p.</small></div>
+          <p>1 voorgerecht en 1 hoofdgerecht met gegrilde groenten, uit de keuken van jullie keuze.</p>
+          <p class="en">1 starter and 1 main per person</p>
+          <button class="btn btn-green" type="button" data-order="Kerstlunch">Bestel nu</button>
+        </div>
+        <div class="card">
+          <h3>Kerstfeest</h3>
+          <div class="price">€39,99 <small>p.p.</small></div>
+          <p>Buffet met 2 voorgerechten, 3 hoofdgerechten, gegrilde groenten en dessert.</p>
+          <p class="en">Full buffet: 2 starters, 3 mains, sides and dessert</p>
+          <button class="btn btn-green" type="button" data-order="Kerstfeest">Bestel nu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menus" class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Kies je keuken</h2><p>Voor de Kerstlunch en het Kerstfeest. Alle hoofdgerechten komen met gegrilde groenten.</p></div>
+        <a class="btn btn-green" href="Holy-Sage-menu.pdf" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+          Download het volledige menu (PDF)
+        </a>
+      </div>
+      <div class="grid g4">
+        <article class="cuisine">
+          <img src="ossobuco.jpg" alt="Ossobuco" loading="lazy">
+          <div class="cuisine-body">
+            <h3>Italiaans</h3>
+            <div><div class="label">Voorgerechten</div><div class="dishes">Antipasti · Bruschetta al pomodoro</div></div>
+            <div><div class="label">Hoofdgerechten</div><div class="dishes">Ossobuco met saffraanrisotto · Lasagne al ragù · Risotto ai funghi of pasta alla Norma</div></div>
+            <div class="plant">Plantaardig: bruschetta, risotto ai funghi of pasta alla Norma</div>
+            <div class="dessert">Dessert: pere al vino rosso, warme peer met vanille-ijs (plantaardig: sorbet)</div>
+          </div>
+        </article>
+        <article class="cuisine">
+          <img src="coq-au-vin.jpg" alt="Coq au vin" loading="lazy">
+          <div class="cuisine-body">
+            <h3>Frans</h3>
+            <div><div class="label">Voorgerechten</div><div class="dishes">Pâté de foie de volaille · Soupe à l'oignon</div></div>
+            <div><div class="label">Hoofdgerechten</div><div class="dishes">Boeuf bourguignon · Coq au vin · Bourguignon aux champignons, met romige puree</div></div>
+            <div class="plant">Plantaardig: soupe à l'oignon en bourguignon aux champignons</div>
+            <div class="dessert">Dessert: poire au vin rouge, warme peer met vanille-ijs (plantaardig: sorbet)</div>
+          </div>
+        </article>
+        <article class="cuisine">
+          <img src="oxtail.jpg" alt="Oxtail stew" loading="lazy">
+          <div class="cuisine-body">
+            <h3>Jamaicaans</h3>
+            <div><div class="label">Voorgerechten</div><div class="dishes">Beef patties · Vegetable patties, met escovitch pickle en mango-scotch bonnet dip</div></div>
+            <div><div class="label">Hoofdgerechten</div><div class="dishes">Jerk chicken · Oxtail stew · Ital stew, met rice and peas en bakbanaan</div></div>
+            <div class="plant">Plantaardig: vegetable patties en Ital stew</div>
+            <div class="dessert">Dessert: sorrel pear in hibiscus en ananas, alcoholvrij, met vanille-ijs (plantaardig: sorbet)</div>
+          </div>
+        </article>
+        <article class="cuisine">
+          <img src="salmon.jpg" alt="Zalm uit de oven" loading="lazy">
+          <div class="cuisine-body">
+            <h3>Continentaal</h3>
+            <div><div class="label">Voorgerechten</div><div class="dishes">Prawn cocktail · Tomaten-paprikasoep</div></div>
+            <div><div class="label">Hoofdgerechten</div><div class="dishes">Chicken &amp; leek pie · Zalm of steak met jus · Vegan shepherd's pie</div></div>
+            <div class="plant">Plantaardig: tomaten-paprikasoep en vegan shepherd's pie</div>
+            <div class="dessert">Dessert: peer in rode wijn, warme peer met vanille-ijs (plantaardig: sorbet)</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="borrel">
+    <div class="wrap">
+      <div class="section-head"><div><h2>Kerstborrel Graze</h2><p>Kazen en vleeswaren, brood en crackers, hummus en dips, rauwkost, hartige hapjes, fruit, noten en kerstchocolade. Ook volledig vegetarisch mogelijk.</p></div></div>
+      <div class="photo-row">
+        <img src="graze-board.jpg" alt="Grazing board met kaas, vleeswaren en fruit">
+        <img src="graze-boxes.jpg" alt="Vier grazing boxes">
+        <img src="graze-board-2.jpg" alt="Grote grazing board">
+      </div>
+      <div class="grid g4">
+        <div class="board"><h3>Medium</h3><div class="people">10–15 personen</div><div class="price">€180</div></div>
+        <div class="board"><h3>Large</h3><div class="people">16–20 personen</div><div class="price">€320</div></div>
+        <div class="board"><h3>X-Large</h3><div class="people">21–25 personen</div><div class="price">€420</div></div>
+        <div class="board feature"><h3>The Holy Grail</h3><div class="people">25+ personen</div><div class="price">Op aanvraag</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mocktails" class="tint">
+    <div class="wrap mock">
+      <div style="flex:1 1 420px;min-width:0">
+        <h2 style="font-size:clamp(1.75rem,3.5vw,2.25rem)">Kerstmocktails</h2>
+        <p style="margin:6px 0 0;color:var(--muted)">Alcoholvrij, met warme specerijen. Te bestellen bij elk menu: 2 mocktails per persoon.</p>
+        <div class="chips">
+          <span class="chip">Winter warmer (warm)</span>
+          <span class="chip">Spiced apple cider</span>
+          <span class="chip">Sorrel punch</span>
+          <span class="chip">Cardamom orange spritz</span>
+          <span class="chip">Ginger chai fizz</span>
+        </div>
+      </div>
+      <div class="price" style="font-size:32px">€6,99 <small>p.p.</small></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <div>
+        <h2>Klaar om te bestellen?</h2>
+        <p><strong>Bestellen t/m 11 december</strong> · Vanaf 10 personen · Allergenen op aanvraag · WhatsApp <a href="https://wa.me/31626048792">+31 6 26048792</a> · <a href="mailto:azumamargret@gmail.com">azumamargret@gmail.com</a></p>
+      </div>
+      <button class="btn btn-green" type="button" data-order>Bestel nu</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" style="font-size:16px"><img src="logo-light.png" alt="Holy Sage" style="display: block; height: 26px; width: auto"></span>
+    <span>Gather · Graze · Chat · Repeat · KVK [nummer]</span>
+  </div>
+</footer>
+
+<dialog id="order" aria-labelledby="order-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2 id="order-title">Bestel bij Holy Sage</h2>
+        <p>Vul je gegevens in, dan nemen we zo snel mogelijk contact op. Bestellen kan tot en met 11 december.</p>
+      </div>
+      <button class="close" type="button" aria-label="Sluiten" data-close>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#24443A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div id="done" class="status ok" hidden style="margin-top:20px">
+      <strong>Bedankt voor je aanvraag!</strong><br>We hebben je bestelling ontvangen en nemen zo snel mogelijk contact met je op.
+    </div>
+
+    <form id="order-form" novalidate>
+      <div class="fields">
+        <label>Bedrijfsnaam<input name="Bedrijf" type="text" required autocomplete="organization"></label>
+        <label>Contactpersoon<input name="Naam" type="text" required autocomplete="name"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+        <label>Telefoon<input name="Telefoon" type="tel" autocomplete="tel"></label>
+        <label>Pakket
+          <select name="Pakket" id="pakket">
+            <option>Kerstborrel Graze</option><option>Kerstlunch</option><option selected>Kerstfeest</option>
+          </select>
+        </label>
+        <label>Keuken of board
+          <select name="Keuze">
+            <option>Italiaans</option><option>Frans</option><option>Jamaicaans</option><option>Continentaal</option>
+            <option>Board: Medium</option><option>Board: Large</option><option>Board: X-Large</option><option>Board: The Holy Grail</option>
+          </select>
+        </label>
+        <label>Aantal personen<input name="Personen" type="number" min="10" required></label>
+        <label>Datum<input name="Datum" type="date" required></label>
+      </div>
+      <label>Bezorgadres, dieetwensen en opmerkingen<textarea name="Opmerkingen" rows="3"></textarea></label>
+      <label class="check"><input name="Mocktails" type="checkbox" value="Ja">Mocktails toevoegen (€6,99 p.p.)</label>
+                  <div id="status" class="status err" hidden></div>
+      <button class="btn btn-green" type="submit" id="send">Verstuur aanvraag</button>
+      <button class="btn btn-outline" type="button" id="wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24443A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg>
+        Of stuur via WhatsApp
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  // ==== SETTINGS: put your new Gmail here ====
+  const EMAIL = "azumamargret@gmail.com";
+  const FORM_ID = "f214cdbd7acf09042ac438741358a03c"; // FormSubmit form code for azumamargret@gmail.com
+  const WHATSAPP = "31626048792";
+  // ===========================================
+
+  const dlg = document.getElementById('order');
+  const form = document.getElementById('order-form');
+  const done = document.getElementById('done');
+  const status = document.getElementById('status');
+  const send = document.getElementById('send');
+
+  document.querySelectorAll('[data-order]').forEach(btn => btn.addEventListener('click', () => {
+    form.hidden = false; done.hidden = true; status.hidden = true;
+    if (btn.dataset.order) document.getElementById('pakket').value = btn.dataset.order;
+    dlg.showModal();
+  }));
+  document.querySelector('[data-close]').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+  function summary() {
+    const lines = [];
+    for (const [k, v] of new FormData(form).entries()) if (k[0] !== '_' && String(v).trim()) lines.push(k + ': ' + v);
+    return lines.join('\n');
+  }
+
+  document.getElementById('wa').addEventListener('click', () => {
+    const text = 'Hallo Holy Sage, ik wil graag bestellen.\n\n' + summary();
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.hidden = true;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (!data.Mocktails) data.Mocktails = 'Nee';
+    data._subject = 'Nieuwe bestelling: ' + data.Pakket + ' · ' + data.Bedrijf;
+    data._replyto = data.email;
+    data._template = 'table';
+    data._captcha = 'false';
+    send.disabled = true; send.textContent = 'Versturen...';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + FORM_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && String(json.success) === 'true') { form.reset(); form.hidden = true; done.hidden = false; }
+      else throw new Error(json.message || ('HTTP ' + res.status));
+    } catch (err) {
+      status.textContent = 'Versturen is niet gelukt. Probeer het nog eens of stuur je aanvraag via WhatsApp. (' + err.message + ')';
+      status.hidden = false;
+    } finally {
+      send.disabled = false; send.textContent = 'Verstuur aanvraag';
+    }
+  });
+</script>
+</body>
+</html>
